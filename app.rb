@@ -1,7 +1,6 @@
 require 'sinatra'
-
+enable :sessions
 get "/" do
-  @name = ["soroush","farnaz"].sample
   erb :index
 
 end
@@ -19,7 +18,12 @@ get '/named' do
 end
 
 post "/show-name" do
-  @name = params[:name]
-  @family = params[:family]
-  erb :showFullName
+  p params
+  session[:name]= params[:name]
+  session[:family]=params[:family]
+  redirect '/show-name'
+end
+
+get '/show-name' do
+  erb :fullName
 end
