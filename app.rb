@@ -1,7 +1,9 @@
 require 'sinatra'
 
 get "/" do
+  @name = ["soroush","farnaz"].sample
   erb :index
+
 end
 
 get '/cats' do
