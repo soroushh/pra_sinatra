@@ -1,4 +1,5 @@
 require 'sinatra'
+require_relative './lib/player.rb'
 enable :sessions
 get "/" do
   erb :index
@@ -18,9 +19,7 @@ get '/named' do
 end
 
 post "/show-name" do
-  p params
-  session[:name]= params[:name]
-  session[:family]=params[:family]
+  session[:player]= Player.new(params[:name],params[:family])
   redirect '/show-name'
 end
 
