@@ -1,1 +1,11 @@
-<h1> The name of the player is <%= session[:player].name %>  <%= session[:player].family %> and it's point is <%= session[:player].point %> </h1> 
+<h1> The name of the player is <%= session[:player].name %>  <%= session[:player].family %> and it's point is <%= session[:player].point %> </h1>
+<% if session[:player].point > 0 %>
+<form action="/attacked" method="post">
+  <input type="submit" value="Get Attacked" />
+</form>
+<% else %>
+<div> Player lost the game </div>
+<form method="get" action="/">
+  <input type="submit" value="Play the game again" />
+</form>
+<% end %>

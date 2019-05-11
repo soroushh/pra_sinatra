@@ -26,3 +26,8 @@ end
 get '/show-name' do
   erb :fullName
 end
+
+post '/attacked' do
+  session[:player].get_attacked()
+  redirect '/show-name'
+end

@@ -5,4 +5,8 @@ class Player
     @family = family
     @point = point
   end
+
+  def get_attacked
+    @point -= 10
+  end
 end
